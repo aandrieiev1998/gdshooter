@@ -1,0 +1,34 @@
+[gd_scene load_steps=5 format=3 uid="uid://dl84l3v4ytfhu"]
+
+[ext_resource type="Script" path="res://scripts/MouseLook.gd" id="1_gt70k"]
+[ext_resource type="Script" path="res://scripts/Crosshair.gd" id="2_20yc0"]
+[ext_resource type="PackedScene" uid="uid://cne3rxxo8uv22" path="res://models/pistol.glb" id="2_vhleh"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_nx7p8"]
+
+[node name="Startup" type="Node3D"]
+
+[node name="Level" type="Node" parent="."]
+
+[node name="Target" type="MeshInstance3D" parent="Level"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -9.51036)
+mesh = SubResource("BoxMesh_nx7p8")
+skeleton = NodePath("../..")
+
+[node name="Player" type="Node3D" parent="."]
+script = ExtResource("1_gt70k")
+
+[node name="Camera3D" type="Camera3D" parent="Player"]
+
+[node name="Weapon" parent="Player/Camera3D" instance=ExtResource("2_vhleh")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0.0344461, -0.0287747, -0.1045)
+
+[node name="Crosshair" type="Node" parent="."]
+script = ExtResource("2_20yc0")
+minGap = 1.5
+maxGap = 5.0
+length = 5.0
+width = 2.029
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.357036, -0.33098, 0.873486, 0.202535, 0.885442, 0.418296, -0.911869, 0.326258, -0.2491, 0, 0, 0)

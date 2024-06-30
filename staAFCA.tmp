@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://dl84l3v4ytfhu"]
+
+[ext_resource type="Script" path="res://MouseLook.gd" id="1_gt70k"]
+[ext_resource type="Script" path="res://Crosshair.gd" id="2_20yc0"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_nx7p8"]
+
+[node name="Startup" type="Node3D"]
+
+[node name="Player" type="Node3D" parent="."]
+script = ExtResource("1_gt70k")
+
+[node name="Camera3D" type="Camera3D" parent="Player"]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -9.51036)
+mesh = SubResource("BoxMesh_nx7p8")
+
+[node name="Crosshair" type="Node" parent="."]
+script = ExtResource("2_20yc0")
